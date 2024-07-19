@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Header from './Components/header';
 import Main from './Components/main';
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="container">
       <Header />
-      <Main />
+      <Main count={count} setCount={setCount} />
     </div>
   );
 }

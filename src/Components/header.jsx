@@ -1,5 +1,5 @@
 import './header.css';
-import AirbnbLogo from '/svgs/airbnb.svg';
+import appLogo from '/images/cute-halloween-skeleton.png';
 
 export default function Header() {
   return (
@@ -13,11 +13,14 @@ export default function Header() {
             rel="noopener noreferrer"
           >
             <img
-              src={AirbnbLogo}
+              src={appLogo}
               className="App-logo react logo-spin"
               alt="React logo"
             />
           </a>
+        </div>
+        <div>
+          <h1 className="App-title">Meme Generator</h1>
         </div>
       </nav>
     </header>
