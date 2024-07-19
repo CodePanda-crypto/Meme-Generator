@@ -13,14 +13,14 @@ export default function Main() {
       <form className="form-container">
         <div className="input-container">
           <div className="input-wrapper">
-            <label htmlFor="input1">Top Text</label>
+            <label htmlFor="top-text">Top Text</label>
             <br />
-            <input type="text" id="input1" placeholder="Enter your text" />
+            <input type="text" id="top-text" placeholder="Enter your text" />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="input2">Bottom Text</label>
+            <label htmlFor="bottom-text">Bottom Text</label>
             <br />
-            <input type="text" id="input2" placeholder="Enter your text" />
+            <input type="text" id="bottom-text" placeholder="Enter your text" />
           </div>
         </div>
         <button className="content-button">
