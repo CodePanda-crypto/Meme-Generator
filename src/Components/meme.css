@@ -9,7 +9,7 @@
   cursor: pointer;
 }
 /* FIXME:Styling for the form container */
-.form-container {
+.user-input-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -19,7 +19,7 @@ export default function Meme() {
 
   return (
     <main className="main-container">
-      <div className="form-container">
+      <div className="user-input-container">
         <div className="input-container">
           <div className="input-wrapper">
             <label htmlFor="top-text">Top Text</label>
