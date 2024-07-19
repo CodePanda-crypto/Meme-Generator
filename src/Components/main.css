@@ -8,7 +8,7 @@
   align-items: center;
   gap: 30px;
 }
-
+/* FIXME:Styling for the input container */
 .input-container {
   display: flex;
   gap: 25px;
@@ -77,6 +77,7 @@
 .content-button:active {
   transform: scale(0.95);
 }
+/* FIXME:Styling for the meme container */
 .meme-container {
   position: relative;
   width: 100%;
