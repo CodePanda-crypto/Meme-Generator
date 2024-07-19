@@ -1,4 +1,6 @@
 import './main.css';
+import magicWandIcon from '/images/magic-wand.png';
+import memeImage from '/images/memeimg.png';
 // import Hero from './Sub_Components/hero';
 // import Card from './Sub_Components/card';
 // import CardData from './cardData';
@@ -8,24 +10,28 @@ export default function Main() {
 
   return (
     <main className="main-container">
-      <div className="input-container">
-        <div className="input-wrapper">
-          <label htmlFor="top-text">Top Text</label>
-          <input type="text" id="top-text" placeholder="Enter Your Text" />
-          <label htmlFor="bottom-text">Bottom Text</label>
-          <input type="text" id="bottom-text" placeholder="Enter Your Text" />
+      <div className="main-container">
+        <div className="input-container">
+          <div className="input-wrapper">
+            <label htmlFor="input1">Top Text</label>
+            <br />
+            <input type="text" id="input1" placeholder="Enter your text" />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="input2">Bottom Text</label>
+            <br />
+            <input type="text" id="input2" placeholder="Enter your text" />
+          </div>
         </div>
-        <button type="button" className="content-button">
+        <button className="content-button">
           Get a new meme image
-          <img
-            src="/images/magic-wand.png"
-            alt="magic wand"
-            className="magic-wand"
-          />
+          <img src={magicWandIcon} alt="Magic Wand" />
         </button>
       </div>
       <div className="meme-container">
-        <img src="/images/group.png" alt="meme" />
+        <p className="top-text meme">SHUT UP</p>
+        <img src={memeImage} alt="meme" className="meme-img" />
+        <p className="bottom-text meme">AND TAKE MY MONEY</p>
       </div>
     </main>
   );
