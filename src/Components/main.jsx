@@ -10,7 +10,7 @@ export default function Main() {
 
   return (
     <main className="main-container">
-      <div className="main-container">
+      <form className="form-container">
         <div className="input-container">
           <div className="input-wrapper">
             <label htmlFor="input1">Top Text</label>
@@ -27,7 +27,7 @@ export default function Main() {
           Get a new meme image
           <img src={magicWandIcon} alt="Magic Wand" />
         </button>
-      </div>
+      </form>
       <div className="meme-container">
         <p className="top-text meme">SHUT UP</p>
         <img src={memeImage} alt="meme" className="meme-img" />
