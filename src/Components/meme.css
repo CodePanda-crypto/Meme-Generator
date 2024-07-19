@@ -1,12 +1,12 @@
 .main-container {
   grid-area: main;
-  height: 87vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  cursor: pointer;
 }
 /* FIXME:Styling for the form container */
 .form-container {
@@ -92,6 +92,9 @@
   width: 100%;
   max-width: 500px;
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .meme {
@@ -108,17 +111,13 @@
 .meme-img {
   width: 100%;
   height: auto;
+  max-height: 500px;
   object-fit: contain;
 }
 .top-text {
-  /* position: absolute;
-  left: 22rem; */
   top: 10px;
 }
 .bottom-text {
-  /* position: absolute;
-  left: 18rem;
-  bottom: 2.5rem; */
   bottom: 10px;
 }
 @media (max-width: 900px) {

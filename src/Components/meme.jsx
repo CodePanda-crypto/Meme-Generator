@@ -1,16 +1,25 @@
-import './main.css';
+import './meme.css';
+import memesData from './memesData.jsx';
 import magicWandIcon from '/images/magic-wand.png';
-import memeImage from '/images/memeimg.png';
-// import Hero from './Sub_Components/hero';
-// import Card from './Sub_Components/card';
-// import CardData from './cardData';
+import React from 'react';
 
-export default function Main() {
-  // const cards = CardData.map((card) => <Card key={card.id} {...card} />);
+export default function Meme() {
+  function getMemeImage() {
+    const memesArray = memesData.data.memes;
+    const randomMeme =
+      memesArray[Math.floor(Math.random() * memesArray.length)];
+    return randomMeme.url;
+  }
+
+  const [memeImage, setMemeImage] = React.useState(getMemeImage());
+
+  const handleGetNewMeme = () => {
+    setMemeImage(getMemeImage());
+  };
 
   return (
     <main className="main-container">
-      <form className="form-container">
+      <div className="form-container">
         <div className="input-container">
           <div className="input-wrapper">
             <label htmlFor="top-text">Top Text</label>
@@ -23,11 +32,11 @@ export default function Main() {
             <input type="text" id="bottom-text" placeholder="Enter your text" />
           </div>
         </div>
-        <button className="content-button">
+        <button onClick={handleGetNewMeme} className="content-button ">
           Get a new meme image
           <img src={magicWandIcon} alt="Magic Wand" />
         </button>
-      </form>
+      </div>
       <div className="meme-container">
         <p className="top-text meme">SHUT UP</p>
         <img src={memeImage} alt="meme" className="meme-img" />
