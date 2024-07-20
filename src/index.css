@@ -78,16 +78,21 @@ ul[role='list'] {
   isolation: isolate;
 }
 
-/* Body Styling */
+/* Root CSS Variables for Themes */
 :root {
+  --background-color: #ffffff;
+  --text-color: rgb(10, 10, 13);
+  --button-bg-color: #f9f9f9;
+  --button-text-color: #000;
+}
+
+body {
   font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   overflow-x: hidden;
-
-  color-scheme: light dark;
-  background-color: #ffffff;
-  color: rgb(10, 10, 13);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -103,12 +108,15 @@ h1 {
   font-style: normal;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: rgb(10, 10, 13);
-    background-color: #ffffff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Dark Theme Variables */
+body.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --button-bg-color: #333333;
+  --button-text-color: #ffffff;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
 }
