@@ -1,39 +1,8 @@
 import './meme.css';
-import memesData from './memesData.jsx';
 import magicWandIcon from '/images/magic-wand.png';
-import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Meme() {
-  // Use of State to generate an object with random meme image and text
-  const [meme, setMeme] = React.useState({
-    topText: '',
-    bottomText: '',
-    randomImage: '',
-  });
-  //generate a random url for the meme image
-  function getMemeImage() {
-    const memesArray = memesData.data.memes;
-    const randomMemeImage =
-      memesArray[Math.floor(Math.random() * memesArray.length)];
-    const url = randomMemeImage.url;
-    return url;
-  }
-  // handle the displaying of the meme image
-  const handleGetNewMeme = () => {
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      randomImage: getMemeImage(),
-    }));
-  };
-  // handle the displaying of the meme text
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      [name]: value,
-    }));
-  };
-
+export default function Meme(props) {
   return (
     <main className="main-container">
       <div className="user-input-container">
@@ -46,8 +15,8 @@ export default function Meme() {
               id="topText"
               name="topText"
               placeholder="Enter your text"
-              value={meme.topText}
-              onChange={handleInputChange}
+              value={props.meme.topText}
+              onChange={props.handleInputChange}
             />
           </div>
           <div className="input-wrapper">
@@ -58,25 +27,36 @@ export default function Meme() {
               id="bottomText"
               name="bottomText"
               placeholder="Enter your text"
-              value={meme.bottomText}
-              onChange={handleInputChange}
+              value={props.meme.bottomText}
+              onChange={props.handleInputChange}
             />
           </div>
         </div>
-        <button onClick={handleGetNewMeme} className="content-button">
+        <button onClick={props.handleGetNewMeme} className="content-button">
           Get a new meme image
           <img src={magicWandIcon} alt="Magic Wand" />
         </button>
       </div>
       <div className="meme-container">
-        <p className="top-text meme">{meme.topText}</p>
+        <p className="top-text meme">{props.meme.topText}</p>
         <img
-          src={meme.randomImage || getMemeImage()}
+          src={props.meme.randomImage || props.getMemeImage()}
           alt="meme"
           className="meme-img"
         />
-        <p className="bottom-text meme">{meme.bottomText}</p>
+        <p className="bottom-text meme">{props.meme.bottomText}</p>
       </div>
     </main>
   );
 }
+
+Meme.propTypes = {
+  meme: PropTypes.shape({
+    topText: PropTypes.string,
+    bottomText: PropTypes.string,
+    randomImage: PropTypes.string,
+  }),
+  handleInputChange: PropTypes.func.isRequired,
+  handleGetNewMeme: PropTypes.func.isRequired,
+  getMemeImage: PropTypes.func.isRequired,
+};
