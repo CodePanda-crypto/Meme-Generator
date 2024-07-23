@@ -10,15 +10,18 @@ export default function App() {
   const [meme, setMeme] = useState({
     topText: '',
     bottomText: '',
-    randomImage: 'http://i.imgflip.com/1bij.jpg',
+    randomImage: 'https://i.imgflip.com/46e43q.png',
   });
   // Create a state variable, allMemes, and set it equal to an empty array.
   const [allMemes, setAllMemes] = React.useState([]);
   // Fetch all memes from the imgflip API and set the allMemes state variable
   useEffect(() => {
-    fetch('https://api.imgflip.com/get_memes')
-      .then((response) => response.json())
-      .then((data) => setAllMemes(data.data.memes));
+    async function fetchMemes() {
+      const response = await fetch('https://api.imgflip.com/get_memes');
+      const data = await response.json();
+      setAllMemes(data.data.memes);
+    }
+    fetchMemes();
   }, []);
   // Create a function, getMemeImage, that will fetch a new random meme image
   // from the imgflip API and set the randomImage state variable equal to the URL
