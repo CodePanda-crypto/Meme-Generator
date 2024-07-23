@@ -11,37 +11,19 @@ export default function App() {
     randomImage: '',
   });
 
-  function handleGetNewMeme() {
-    const getMemeImage = () => {
-      const memesArray =
-        memesData && memesData.data && memesData.data.memes
-          ? memesData.data.memes
-          : [];
-      const randomMemeImage =
-        memesArray[Math.floor(Math.random() * memesArray.length)];
-      const url = randomMemeImage.url;
-      return url;
-    };
-
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      randomImage: getMemeImage(),
-    }));
-  }
-
   function getMemeImage() {
     const memesArray =
       memesData && memesData.data && memesData.data.memes
         ? memesData.data.memes
         : [];
-    if (!memesArray || memesArray.length === 0) {
-      // Handle the case where memesArray is undefined or empty
-      return ''; // Or any default value or error handling strategy
-    }
     const randomMemeImage =
       memesArray[Math.floor(Math.random() * memesArray.length)];
     const url = randomMemeImage.url;
-    return url;
+
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      randomImage: url,
+    }));
   }
 
   function handleInputChange(event) {
@@ -58,8 +40,8 @@ export default function App() {
       <Meme
         meme={meme}
         handleInputChange={handleInputChange}
-        handleGetNewMeme={handleGetNewMeme}
         getMemeImage={getMemeImage}
+        randomImage={meme.randomImage}
       />
     </div>
   );

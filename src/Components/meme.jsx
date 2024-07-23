@@ -32,7 +32,7 @@ export default function Meme(props) {
             />
           </div>
         </div>
-        <button onClick={props.handleGetNewMeme} className="content-button">
+        <button onClick={props.getMemeImage} className="content-button">
           Get a new meme image
           <img src={magicWandIcon} alt="Magic Wand" />
         </button>
@@ -57,6 +57,5 @@ Meme.propTypes = {
     randomImage: PropTypes.string,
   }),
   handleInputChange: PropTypes.func.isRequired,
-  handleGetNewMeme: PropTypes.func.isRequired,
   getMemeImage: PropTypes.func.isRequired,
 };
